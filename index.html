@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medir digitação</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body onload="novaFrase();">
+    <div id="app">
+        <div id="medidor"></div>
+        <div id="txtObjetivo" ></div><br>
+        <textarea cols="40" rows="3" id="txtCampo" oninput="checar();"></textarea><br>
+        <div id="resultado"></div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

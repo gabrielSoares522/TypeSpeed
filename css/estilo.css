@@ -1,0 +1,28 @@
+#app{
+    background-color:burlywood;
+    padding: 30px;
+    width: 300px;
+    margin: 50px auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+textarea{
+    font-size: large;
+    width: 294px;
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+#txtObjetivo{
+    
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+#medidor{
+    background-color: darkcyan;
+    width: 0;
+    height: 20px;
+}
