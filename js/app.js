@@ -27,13 +27,12 @@ function checar() {
         fim = new Date();
         let diferenca = fim-inicio;
         diferenca /= 1000;
-                
-        var segundos = Math.round(diferenca);
+        
         var resu = texto.length/diferenca;
                 
-        var tempoPlacar= document.createElement("p");
-        var tempoRelativo= document.createElement("p");
-        var recordePlacar= document.createElement("p");
+        var tempoPlacar = document.createElement("p");
+        var tempoRelativo = document.createElement("p");
+        var recordePlacar = document.createElement("p");
         var recorde =parseFloat(localStorage.getItem("recorde")) || resu-1;
                 
         if(resu>recorde){
@@ -41,9 +40,9 @@ function checar() {
             localStorage.setItem("recorde",recorde);
             console.log(recorde);
         }
-        tempoPlacar.innerHTML = "total: " + diferenca.toFixed(4) + " segundos";
-        tempoRelativo.innerHTML = "velocidade: " + resu.toFixed(4) + " L/S";
-        recordePlacar.innerHTML = "recorde: " + recorde.toFixed(4) + " L/s";
+        tempoPlacar.innerHTML = "tempo total: " + diferenca.toFixed(3) + " segundos";
+        tempoRelativo.innerHTML = "velocidade: " + resu.toFixed(3) + " L/S";
+        recordePlacar.innerHTML = "recorde: " + recorde.toFixed(3) + " L/S";
         resultado.appendChild(tempoPlacar);
         resultado.appendChild(tempoRelativo);
         resultado.appendChild(recordePlacar);
@@ -51,12 +50,15 @@ function checar() {
 }
 
 function novaFrase() {
+    
+    medidor.style.width = "0";
     terminou = false;
     campo.value = "";
     campo.style.display= "none";
     resultado.innerHTML="";
     objetivo.innerText=frases[Math.floor(Math.random()*frases.length)];
     cronometro=3;
+    clearInterval(cronInicio)
     cronInicio = setInterval(inicializando,1000);
 }
 

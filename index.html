@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medir digitação</title>
+    <title>Key  Speed</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body onload="novaFrase();">
     <div id="app">
         <div id="medidor"></div>
-        <div id="txtObjetivo" ></div><br>
-        <textarea cols="40" rows="3" id="txtCampo" oninput="checar();"></textarea><br>
+        <div id="txtObjetivo" ></div>
+        <textarea cols="40" rows="3" id="txtCampo" oninput="checar();"></textarea>
         <div id="resultado"></div>
+        <button id="recomecar" onclick="novaFrase();">Recomeçar</button>
     </div>
     <script src="js/app.js"></script>
 </body>

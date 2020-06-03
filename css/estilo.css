@@ -4,16 +4,18 @@
     width: 300px;
     margin: 50px auto;
     font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
 }
 textarea{
     font-size: large;
     width: 294px;
     resize: none;
     font-family: Arial, Helvetica, sans-serif;
-    
+    text-align: center;
 }
 #txtObjetivo{
-    
+    text-align: center;
+    font-weight: bold;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -25,4 +27,11 @@ textarea{
     background-color: darkcyan;
     width: 0;
     height: 20px;
+}
+#recomecar{
+    padding: 4px 0;
+    width: 100px;
+    position: relative;
+    left: 50%;
+    margin-left: -50px;
 }
