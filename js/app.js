@@ -1,14 +1,31 @@
-const frases = ["ola meu nome e diego","compre uma banana","leia o livro recomendado"];
+let frases = ["ola meu nome e diego","compre uma banana","leia o livro recomendado"];
 let objetivo = document.getElementById("txtObjetivo");
 let campo = document.getElementById("txtCampo");
 let resultado = document.getElementById("resultado");
 let medidor = document.getElementById("medidor");
+let body = document.getElementsByTagName("body")[0];
+
 let inicio;
 let fim;
 let terminou = false;
 
 var cronometro=3;
 var cronInicio;
+const url = "https://type.fit/api/quotes";
+const buscarFrases = new  Promise(async (resolve,reject) => {
+    const res = await fetch(url);
+    resolve(res.json());
+});
+
+/*async function getCitacoes() {
+    try {
+      const res = await fetch(url);
+      frases = await res.json();
+    } catch (err) {
+      console.log(err);
+    }
+  }*/
+
 function checar() {
     var texto = objetivo.innerText;
     var escrevendo =  campo.value;
@@ -41,8 +58,8 @@ function checar() {
             console.log(recorde);
         }
         tempoPlacar.innerHTML = "tempo total: " + diferenca.toFixed(3) + " segundos";
-        tempoRelativo.innerHTML = "velocidade: " + resu.toFixed(3) + " L/S";
-        recordePlacar.innerHTML = "recorde: " + recorde.toFixed(3) + " L/S";
+        tempoRelativo.innerHTML = "velocidade: " + resu.toFixed(3) + " Letras/Segundo";
+        recordePlacar.innerHTML = "recorde: " + recorde.toFixed(3) + " Letras/Segundo";
         resultado.appendChild(tempoPlacar);
         resultado.appendChild(tempoRelativo);
         resultado.appendChild(recordePlacar);
@@ -50,13 +67,12 @@ function checar() {
 }
 
 function novaFrase() {
-    
     medidor.style.width = "0";
     terminou = false;
     campo.value = "";
     campo.style.display= "none";
     resultado.innerHTML="";
-    objetivo.innerText=frases[Math.floor(Math.random()*frases.length)];
+    objetivo.innerText = frases[Math.floor(Math.random()*frases.length)].text;
     cronometro=3;
     clearInterval(cronInicio)
     cronInicio = setInterval(inicializando,1000);
@@ -75,3 +91,13 @@ function inicializando() {
         cronometro--;
     }
 }
+
+async function carregando(){
+    frases = await buscarFrases
+    .then(res => {
+        return res
+    });
+
+    await novaFrase();
+}
+body.addEventListener("load",carregando());
