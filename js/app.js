@@ -17,15 +17,6 @@ const buscarFrases = new  Promise(async (resolve,reject) => {
     resolve(res.json());
 });
 
-/*async function getCitacoes() {
-    try {
-      const res = await fetch(url);
-      frases = await res.json();
-    } catch (err) {
-      console.log(err);
-    }
-  }*/
-
 function checar() {
     var texto = objetivo.innerText;
     var escrevendo =  campo.value;
@@ -38,8 +29,9 @@ function checar() {
         campo.style.color = "red";
         console.log('errado');
     }
-    if(texto == escrevendo && terminou==false){
-        campo.style.display= "none";
+    if(texto == escrevendo && terminou == false){
+        campo.disabled = true;
+        campo.style.display = "none";
         terminou = true;
         fim = new Date();
         let diferenca = fim-inicio;
@@ -52,7 +44,7 @@ function checar() {
         var recordePlacar = document.createElement("p");
         var recorde =parseFloat(localStorage.getItem("recorde")) || resu-1;
                 
-        if(resu>recorde){
+        if(resu > recorde){
             recorde = resu;
             localStorage.setItem("recorde",recorde);
             console.log(recorde);
@@ -68,9 +60,10 @@ function checar() {
 
 function novaFrase() {
     medidor.style.width = "0";
+    campo.style.display = "block";
     terminou = false;
     campo.value = "";
-    campo.style.display= "none";
+    campo.disabled = true;
     resultado.innerHTML="";
     objetivo.innerText = frases[Math.floor(Math.random()*frases.length)].text;
     cronometro=3;
@@ -80,7 +73,7 @@ function novaFrase() {
 
 function inicializando() {
     if(cronometro==0) {
-        campo.style.display= "block";
+        campo.disabled = false;
         campo.focus();
         resultado.innerHTML = '';
         inicio = new Date();
