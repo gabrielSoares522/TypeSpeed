@@ -42,16 +42,16 @@ function checar() {
         var tempoPlacar = document.createElement("p");
         var tempoRelativo = document.createElement("p");
         var recordePlacar = document.createElement("p");
-        var recorde =parseFloat(localStorage.getItem("recorde")) || resu-1;
+        var recorde = parseFloat(localStorage.getItem("recorde")) || resu-1;
                 
         if(resu > recorde){
             recorde = resu;
             localStorage.setItem("recorde",recorde);
             console.log(recorde);
         }
-        tempoPlacar.innerHTML = "tempo total: " + diferenca.toFixed(3) + " segundos";
-        tempoRelativo.innerHTML = "velocidade: " + resu.toFixed(3) + " Letras/Segundo";
-        recordePlacar.innerHTML = "recorde: " + recorde.toFixed(3) + " Letras/Segundo";
+        tempoPlacar.innerHTML = "Tempo total: " + diferenca.toFixed(3) + " segundos";
+        tempoRelativo.innerHTML = "velocidade: " + resu.toFixed(3) + " L/S";
+        recordePlacar.innerHTML = "recorde de veloscidade: " + recorde.toFixed(3) + " L/S";
         resultado.appendChild(tempoPlacar);
         resultado.appendChild(tempoRelativo);
         resultado.appendChild(recordePlacar);
