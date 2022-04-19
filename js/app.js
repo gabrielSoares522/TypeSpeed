@@ -50,8 +50,8 @@ function checar() {
             console.log(recorde);
         }
         tempoPlacar.innerHTML = "Tempo total: " + diferenca.toFixed(3) + " segundos";
-        tempoRelativo.innerHTML = "velocidade: " + resu.toFixed(3) + " L/S";
-        recordePlacar.innerHTML = "recorde de veloscidade: " + recorde.toFixed(3) + " L/S";
+        tempoRelativo.innerHTML = "Velocidade: " + resu.toFixed(3) + " L/S";
+        recordePlacar.innerHTML = "Recorde de velocidade: " + recorde.toFixed(3) + " L/S";
         resultado.appendChild(tempoPlacar);
         resultado.appendChild(tempoRelativo);
         resultado.appendChild(recordePlacar);
